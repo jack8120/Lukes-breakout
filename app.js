@@ -1,9 +1,11 @@
 const grid = document.querySelector('.grid')
 const blockWidth = 100
 const blockHeight = 20
-
+const boardWidth = 560
 const userStart = [230, 10]
 let currentPosition = userStart
+
+const ballstart = [230,40]
 
 //create Block
 class Block {
@@ -71,11 +73,19 @@ switch(e.key) {
         }
 
         break;
-        
-    }
+    case 'ArrowRight':
+        if (currentPosition[0] < boardWidth - blockWidth)  {      
+        currentPosition[0] +=10
+        drawUser()
+    } 
+    break;
+}
+    
 }
 
 document.addEventListener('keydown', moveUser)
-
-
-//1:57:16 breakout
+// add ball
+const ball = document.createElement('div')
+ball.classList.add("ball")
+grid.appendChild(ball)
+// 2:01:09
